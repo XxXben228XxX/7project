@@ -6,6 +6,15 @@ function clearDisplay() {
     document.querySelector('.display').value = '';
 }
 
+function clearEntry() {
+    let currentValue = document.querySelector('.display').value;
+    document.querySelector('.display').value = currentValue.slice(0, -1);
+}
+
+function backspace() {
+    document.querySelector('.display').value = '';
+}
+
 function calculate() {
     let result = eval(document.querySelector('.display').value);
     document.querySelector('.display').value = result;
@@ -18,9 +27,21 @@ function toggleSign() {
     }
 }
 
-function addDecimal() {
-    let displayValue = document.querySelector('.display').value;
-    if (displayValue.indexOf('.') === -1) {
-        document.querySelector('.display').value += '.';
+function reciprocal() {
+    let displayValue = parseFloat(document.querySelector('.display').value);
+    if (displayValue !== 0) {
+        document.querySelector('.display').value = 1 / displayValue;
+    }
+}
+
+function square() {
+    let displayValue = parseFloat(document.querySelector('.display').value);
+    document.querySelector('.display').value = displayValue * displayValue;
+}
+
+function squareRoot() {
+    let displayValue = parseFloat(document.querySelector('.display').value);
+    if (displayValue >= 0) {
+        document.querySelector('.display').value = Math.sqrt(displayValue);
     }
 }
