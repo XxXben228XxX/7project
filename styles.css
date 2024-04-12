@@ -1,21 +1,28 @@
 .calculator {
-    width: 200px;
+    width: 300px; /* Збільшити ширину калькулятора */
     margin: 50px auto;
     border: 1px solid #ccc;
     padding: 10px;
+    border-radius: 10px; /* Додати закруглені кути */
 }
 
 .display {
-    width: 100%;
+    width: calc(100% - 20px); /* Зменшити ширину на 20px, щоб врахувати padding */
     margin-bottom: 10px;
+    padding: 5px; /* Додати внутрішній padding */
+    border-radius: 5px; /* Додати закруглені кути */
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 5px; /* Додати проміжок між кнопками */
 }
 
 button {
     padding: 10px;
-    margin: 5px;
+    margin: 0; /* Видалити зовнішній margin */
+    border: none; /* Видалити рамку кнопки */
+    border-radius: 5px; /* Додати закруглені кути */
+    cursor: pointer; /* Змінити відображення курсора на вказівник */
 }
