@@ -14,6 +14,9 @@ function clearDisplay() {
 function clearEntry() {
     let currentValue = document.querySelector('.display').value;
     document.querySelector('.display').value = currentValue.slice(0, -1);
+    if (document.querySelector('.display').value === '') {
+        document.querySelector('.display').value = '0';
+    }
 }
 
 function backspace() {
