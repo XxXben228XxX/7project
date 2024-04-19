@@ -14,9 +14,6 @@ function clearDisplay() {
 function clearEntry() {
     let currentValue = document.querySelector('.display').value;
     document.querySelector('.display').value = currentValue.slice(0, -1);
-    if (document.querySelector('.display').value === '') {
-        document.querySelector('.display').value = '0';
-    }
 }
 
 function backspace() {
@@ -55,7 +52,7 @@ function reciprocal() {
 
 function square() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    document.querySelector('.display').value = Math.pow(displayValue, 2);
+    document.querySelector('.display').value = displayValue * displayValue;
 }
 
 function squareRoot() {
@@ -66,5 +63,3 @@ function squareRoot() {
         document.querySelector('.display').value = 'Error';
     }
 }
-
-
