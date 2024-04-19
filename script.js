@@ -1,6 +1,6 @@
 function appendToDisplay(value) {
     let displayValue = document.querySelector('.display').value;
-    if (displayValue === '0' && value !== 'x^2' && value !== 'sqrt(') {
+    if (displayValue === '0') {
         document.querySelector('.display').value = value;
     } else {
         document.querySelector('.display').value += value;
