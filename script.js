@@ -1,6 +1,6 @@
 function appendToDisplay(value) {
     let displayValue = document.querySelector('.display').value;
-    if (displayValue === '0') {
+    if (displayValue === '0' || displayValue === 'Error') {
         document.querySelector('.display').value = value;
     } else {
         document.querySelector('.display').value += value;
@@ -20,24 +20,37 @@ function clearEntry() {
 }
 
 function backspace() {
-    document.querySelector('.display').value = '';
+    let displayValue = document.querySelector('.display').value;
+    document.querySelector('.display').value = displayValue.slice(0, -1);
+    if (document.querySelector('.display').value === '') {
+        document.querySelector('.display').value = '0';
+    }
 }
 
 function calculate() {
-    let result = eval(document.querySelector('.display').value);
-    document.querySelector('.display').value = result;
+    let expression = document.querySelector('.display').value;
+    try {
+        let result = eval(expression);
+        document.querySelector('.display').value = result;
+    } catch (error) {
+        document.querySelector('.display').value = 'Error';
+    }
 }
 
 function toggleSign() {
     let displayValue = document.querySelector('.display').value;
-    if (displayValue !== '' && displayValue !== '0') {
+    if (displayValue !== '0') {
         document.querySelector('.display').value = displayValue.charAt(0) === '-' ? displayValue.slice(1) : '-' + displayValue;
     }
 }
 
 function reciprocal() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    document.querySelector('.display').value = 1 / displayValue;
+    if (displayValue !== 0) {
+        document.querySelector('.display').value = 1 / displayValue;
+    } else {
+        document.querySelector('.display').value = 'Error';
+    }
 }
 
 function square() {
@@ -47,6 +60,9 @@ function square() {
 
 function squareRoot() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    document.querySelector('.display').value = Math.sqrt(displayValue);
-}
+    if (displayValue >= 0) {
+        document.querySelector('.display').value = Math.sqrt(displayValue);
+    } else {
+        document.querySelector('.display').value = 'Error';
+    }
 }
