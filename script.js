@@ -66,4 +66,4 @@ function squareRoot() {
         document.querySelector('.display').value = 'Error';
     }
 }
-}
+
