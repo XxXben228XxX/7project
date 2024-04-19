@@ -1,14 +1,22 @@
 function appendToDisplay(value) {
-    document.querySelector('.display').value += value;
+    let displayValue = document.querySelector('.display').value;
+    if (displayValue === '0') {
+        document.querySelector('.display').value = value;
+    } else {
+        document.querySelector('.display').value += value;
+    }
 }
 
 function clearDisplay() {
-    document.querySelector('.display').value = '';
+    document.querySelector('.display').value = '0';
 }
 
 function clearEntry() {
     let currentValue = document.querySelector('.display').value;
     document.querySelector('.display').value = currentValue.slice(0, -1);
+    if (document.querySelector('.display').value === '') {
+        document.querySelector('.display').value = '0';
+    }
 }
 
 function backspace() {
