@@ -1,10 +1,5 @@
 function appendToDisplay(value) {
-    let displayValue = document.querySelector('.display').value;
-    if (displayValue === '0' || displayValue === 'Error') {
-        document.querySelector('.display').value = value;
-    } else {
-        document.querySelector('.display').value += value;
-    }
+    document.querySelector('.display').value += value;
 }
 
 function clearDisplay() {
