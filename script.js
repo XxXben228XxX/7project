@@ -46,11 +46,7 @@ function toggleSign() {
 
 function reciprocal() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    if (displayValue !== 0) {
-        document.querySelector('.display').value = 1 / displayValue;
-    } else {
-        document.querySelector('.display').value = 'Error';
-    }
+    document.querySelector('.display').value = 1 / displayValue;
 }
 
 function square() {
@@ -60,9 +56,5 @@ function square() {
 
 function squareRoot() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    if (displayValue >= 0) {
-        document.querySelector('.display').value = Math.sqrt(displayValue);
-    } else {
-        document.querySelector('.display').value = 'Error';
-    }
+    document.querySelector('.display').value = Math.sqrt(displayValue);
 }
