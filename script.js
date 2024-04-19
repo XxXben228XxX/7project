@@ -55,7 +55,7 @@ function reciprocal() {
 
 function square() {
     let displayValue = parseFloat(document.querySelector('.display').value);
-    document.querySelector('.display').value = displayValue * displayValue;
+    document.querySelector('.display').value = Math.pow(displayValue, 2);
 }
 
 function squareRoot() {
@@ -65,4 +65,5 @@ function squareRoot() {
     } else {
         document.querySelector('.display').value = 'Error';
     }
+}
 }
